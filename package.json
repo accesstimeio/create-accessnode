@@ -1,12 +1,20 @@
 {
   "name": "create-accessnode",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/cli.js",
+  "description": "CLI for setting up AccessNode projects. Clones AccessNode repo, prompts for chains & contracts, creates node.config.ts.",
   "bin": {
-    "create-accessnode": "./bin/cli.ts"
+    "create-accessnode": "./dist/cli.js"
   },
-  "keywords": [],
+  "type": "module",
+  "files": ["dist"],
+  "keywords": [
+    "AccessTime",
+    "blockchain",
+    "cli",
+    "subscriptions",
+    "Ponder",
+    "AccessNode"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "ts-node bin/cli.ts"

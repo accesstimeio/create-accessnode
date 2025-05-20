@@ -104,6 +104,37 @@ async function main() {
   console.log(pico.green("✅ Project created at:"), pico.bold(projectPath));
   console.log(pico.green("✅ Configuration written to node.config.ts"));
   console.log();
+
+  // Step 4: Cleanup git and re-init
+  console.log(pico.blue("🔧 Resetting git history..."));
+  fs.rmSync(path.join(projectPath, ".git"), { recursive: true, force: true });
+  await execa("git", ["init"], { cwd: projectPath });
+  await execa("git", ["add", "."], { cwd: projectPath });
+  await execa("git", ["commit", "-m", "chore: update config"], { cwd: projectPath });
+  console.log(pico.green("✅ Git repository initialized."));
+
+  // Step 5: Ensure pnpm is installed
+  console.log(pico.blue("🔍 Checking pnpm..."));
+  let pnpmInstalled = true;
+  try {
+    await execa("pnpm", ["--version"]);
+  } catch {
+    pnpmInstalled = false;
+  }
+
+  if (!pnpmInstalled) {
+    console.log(pico.yellow("📦 pnpm not found. Installing..."));
+    await execa("npm", ["install", "-g", "pnpm"]);
+    console.log(pico.green("✅ pnpm installed globally."));
+  }
+
+  // Step 6: Install dependencies
+  console.log(pico.blue("📦 Installing dependencies with pnpm..."));
+  await execa("pnpm", ["install"], { cwd: projectPath });
+  console.log(pico.green("✅ Dependencies installed."));
+
+  console.log();
+  console.log(pico.green("🚀 Setup complete! Happy hacking!"));
 }
 
 main().catch((err) => {
