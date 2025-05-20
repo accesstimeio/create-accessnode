@@ -1,0 +1,30 @@
+{
+  // Adapted from ponder.sh (https://github.com/ponder-sh/ponder/blob/main/packages/create-ponder/tsconfig.json).
+  "include": ["src", "bin", "bin"],
+  "compilerOptions": {
+    "strict": true,
+    "useDefineForClassFields": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "useUnknownInCatchVariables": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "allowJs": false,
+    "checkJs": false,
+    "verbatimModuleSyntax": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "target": "ESNext",
+    "lib": [
+      "ES2022"
+    ],
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": { "@/*": ["src/*"] }
+  }
+}

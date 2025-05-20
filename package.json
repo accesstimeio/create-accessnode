@@ -1,0 +1,33 @@
+{
+  "name": "create-accessnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/cli.js",
+  "bin": {
+    "create-accessnode": "./bin/cli.ts"
+  },
+  "keywords": [],
+  "scripts": {
+    "build": "tsup",
+    "dev": "ts-node bin/cli.ts"
+  },
+  "author": {
+    "name": "AccessTime",
+    "url": "https://github.com/accesstimeio"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@10.10.0",
+  "devDependencies": {
+    "@types/node": "^22.15.19",
+    "@types/prompts": "^2.4.9",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "execa": "^9.5.3",
+    "picocolors": "^1.1.1",
+    "prettier": "^3.5.3",
+    "prompts": "^2.4.2"
+  }
+}
