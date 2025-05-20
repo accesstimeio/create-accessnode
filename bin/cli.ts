@@ -56,15 +56,12 @@ async function main() {
       .map((a: string) => a.trim().toLowerCase())
       .filter(Boolean);
 
-    const startBlock: Record<string, number> = {};
-    for (const address of addressList) {
-      const { block } = await prompts({
-        type: "number",
-        name: "block",
-        message: `Enter start block for ${address} on ${chainId}:`,
-      });
-      startBlock[address] = block;
-    }
+    // Ask for start block at the chain level
+    const { startBlock } = await prompts({
+      type: "number",
+      name: "startBlock",
+      message: `Enter start block for ${chainId}:`,
+    });
 
     contractNetworkConfig[chainId] = {
       address: addressList,
